@@ -1,13 +1,17 @@
 @import 'normalize.css';
 
 :root {
+  --color-white: #fcfdfc;
+  --color-black: #050505e0;
+  --color-purple-light: #f1f3fa;
+
   font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
+  color: var(--color-black);
+  background-color: var(--color-white);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
