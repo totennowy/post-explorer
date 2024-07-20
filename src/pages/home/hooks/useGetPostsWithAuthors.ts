@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ModelPostWithAuthor, ModelUser } from '../types/modelHome';
+
 import { getPosts } from '../services/postsService';
 import { getUsers } from '../services/usersService';
+import { ModelPostWithAuthor } from '../types/modelPostWithAuthor';
+import { ModelUser } from '../types/modelUser';
 
 const useGetPostsWithAuthors = () => {
   const [postsData, setPostsData] = useState<ModelPostWithAuthor[]>([]);
