@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ModelUser } from '../types/modelHome';
+import { ModelUser } from '../types/modelUser';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
