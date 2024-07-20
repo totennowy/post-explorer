@@ -1,8 +1,9 @@
+import Home from "@pages/home/Home"
 
 function App() {
   return (
     <>
-      xyz
+      <Home />
     </>
   )
 }
