@@ -1,13 +1,16 @@
-import useGetPostsWithAuthors from '../hooks/useGetPostsWithAuthors';
+import Pagination from '@components/pagination/Pagination';
 import HomeTableRow from './HomeTableRow';
+import useGetPostsWithAuthors from '../hooks/useGetPostsWithAuthors';
+import useHomeTable from '../hooks/useHomeTable';
 
 const HomeTable = () => {
   const { postsData, loading, error } = useGetPostsWithAuthors();
-
+  const { paginatedData, rowsPerPage, setRowsPerPage } =
+    useHomeTable(postsData);
   return (
     <table className="table_container">
-      <thead>
-        <tr className="head_container">
+      <thead className="table_head">
+        <tr className="row_container">
           <td className="head_column">Author</td>
           <td className="head_column">Post ID</td>
           <td className="head_column">Title</td>
@@ -15,10 +18,13 @@ const HomeTable = () => {
         </tr>
       </thead>
       <tbody>
-        {postsData.map((post) => (
+        {paginatedData.map((post) => (
           <HomeTableRow key={post.id} {...post} />
         ))}
       </tbody>
+      <tfoot>
+        <Pagination rowsPerPage={rowsPerPage} setRowsPerPage={setRowsPerPage} />
+      </tfoot>
     </table>
   );
 };
