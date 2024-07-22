@@ -1,29 +1,41 @@
 @import 'normalize.css';
 
+/* START VARIABLES */
 :root {
   --color-white: #fcfdfc;
   --color-black: #050505e0;
   --color-purple-light: #f1f3fa;
 
-  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-size-small: 0.875rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.25rem;
+  --font-size-extra-large: 1.5rem;
 
-  color-scheme: light dark;
-  color: var(--color-black);
-  background-color: var(--color-white);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  ---font-weight-light: 300;
+  ---font-weight-standard: 400;
+  ---font-weight-medium: 500;
+  ---font-weight-bold: 700;
+  ---font-weight-extra-bold: 900;
 }
+/* END VARIABLES */
 
+/* START GLOBAL STYLES */
 body {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: var(---font-weight-standard);
+  color-scheme: light dark;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 40px;
 }
 
 .wrap {
@@ -31,6 +43,41 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid red;
+  justify-content: center;
 }
+/* END GLOBAL STYLES */
+
+/* START HomeTable.tsx */
+.table_container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: var(--color-purple-light);
+  padding: 16px;
+  border-radius: 8px;
+  font-size: var(--font-size-small);
+}
+
+.wrap .table_container .head_container {
+  border-top: 3px solid var(--color-white);
+  border-bottom: 3px solid var(--color-white);
+  padding: 12px 0;
+}
+
+.head_column {
+  font-size: var(--font-size-medium);
+  font-weight: var(---font-weight-bold);
+}
+
+.table_container tr {
+  display: grid;
+  grid-template-columns: 2fr 1fr 4fr 8fr;
+  gap: 16px;
+  border-bottom: 2px solid var(--color-white);
+  padding: 4px 0;
+}
+
+.table_container tr td {
+  max-height: 44px;
+  overflow-y: scroll;
+}
+/* END HomeTable.tsx */
