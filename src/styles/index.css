@@ -55,9 +55,16 @@ body {
   padding: 16px;
   border-radius: 8px;
   font-size: var(--font-size-small);
+  position: relative;
 }
 
-.wrap .table_container .head_container {
+.table_container .table_head {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-purple-light);
+}
+
+.wrap .table_container .row_container {
   border-top: 3px solid var(--color-white);
   border-bottom: 3px solid var(--color-white);
   padding: 12px 0;
