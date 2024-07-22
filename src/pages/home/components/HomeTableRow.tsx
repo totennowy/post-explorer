@@ -1,5 +1,4 @@
-import { ModelHomeTableRow } from "../types/modelHomeTableRow";
-
+import { ModelHomeTableRow } from '../types/modelHomeTableRow';
 
 const HomeTableRow: React.FC<ModelHomeTableRow> = ({
   author,

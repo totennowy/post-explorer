@@ -5,12 +5,14 @@ const HomeTable = () => {
   const { postsData, loading, error } = useGetPostsWithAuthors();
 
   return (
-    <table>
+    <table className="table_container">
       <thead>
-        <tr>Author</tr>
-        <tr>Post ID</tr>
-        <tr>Title</tr>
-        <tr>Body</tr>
+        <tr className="head_container">
+          <td className="head_column">Author</td>
+          <td className="head_column">Post ID</td>
+          <td className="head_column">Title</td>
+          <td className="head_column">Body</td>
+        </tr>
       </thead>
       <tbody>
         {postsData.map((post) => (
