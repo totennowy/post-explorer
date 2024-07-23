@@ -10,6 +10,10 @@ const useHomeTable = (postsData: ModelPostWithAuthor[]) => {
     setCurrentPage(1);
   };
 
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
   const paginatedData =
     rowsPerPage === -1
       ? postsData
@@ -18,13 +22,17 @@ const useHomeTable = (postsData: ModelPostWithAuthor[]) => {
           currentPage * rowsPerPage,
         );
 
+  const totalPages = Math.ceil(postsData.length / rowsPerPage);
+
   return {
     rowsPerPage,
     setRowsPerPage,
     currentPage,
     setCurrentPage,
     handleRowsPerPage,
+    handlePageChange,
     paginatedData,
+    totalPages,
   };
 };
 
