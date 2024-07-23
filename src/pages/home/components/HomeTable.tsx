@@ -22,7 +22,7 @@ const HomeTable = () => {
           <HomeTableRow key={post.id} {...post} />
         ))}
       </tbody>
-      <tfoot>
+      <tfoot className="table_foot">
         <Pagination rowsPerPage={rowsPerPage} setRowsPerPage={setRowsPerPage} />
       </tfoot>
     </table>

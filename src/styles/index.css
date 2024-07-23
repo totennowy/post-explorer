@@ -70,7 +70,7 @@ body {
   padding: 12px 0;
 }
 
-.head_column {
+.row_container .head_column {
   font-size: var(--font-size-medium);
   font-weight: var(---font-weight-bold);
 }
@@ -83,8 +83,30 @@ body {
   padding: 4px 0;
 }
 
+.table_container tbody tr:last-child {
+  border-bottom: none;
+}
+
 .table_container tr td {
   max-height: 44px;
   overflow-y: scroll;
 }
 /* END HomeTable.tsx */
+
+/* START Pagination.tsx */
+.table_container .table_foot {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--color-purple-light);
+}
+
+.pagination_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 8px 0;
+  border-top: 2px solid var(--color-white);
+}
+/* END Pagination.tsx */

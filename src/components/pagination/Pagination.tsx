@@ -5,7 +5,7 @@ const Pagination: React.FC<ModelPagination> = ({
   setRowsPerPage,
 }) => {
   return (
-    <div>
+    <div className="pagination_container">
       <label htmlFor="rowsPerPage">Rows per page: </label>
       <select
         id="rowsPerPage"
