@@ -1,6 +1,6 @@
-import { ModelPagination } from './types/modelPagination';
+import { ModelRowsPerPage } from './types/modelRowsPerPage';
 
-const Pagination: React.FC<ModelPagination> = ({
+const RowsPerPage: React.FC<ModelRowsPerPage> = ({
   rowsPerPage,
   setRowsPerPage,
 }) => {
@@ -21,4 +21,4 @@ const Pagination: React.FC<ModelPagination> = ({
   );
 };
 
-export default Pagination;
+export default RowsPerPage;

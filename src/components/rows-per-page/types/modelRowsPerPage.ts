@@ -1,4 +1,4 @@
-export type ModelPagination = {
+export type ModelRowsPerPage = {
   rowsPerPage: number;
   setRowsPerPage: (value: number) => void;
 };

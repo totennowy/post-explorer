@@ -1,10 +1,10 @@
-import Pagination from '@components/pagination/Pagination';
 import HomeTableRow from './HomeTableRow';
 import useGetPostsWithAuthors from '../hooks/useGetPostsWithAuthors';
 import useHomeTable from '../hooks/useHomeTable';
+import RowsPerPage from '@components/rows-per-page/RowsPerPage';
 
 const HomeTable = () => {
-  const { postsData, loading, error } = useGetPostsWithAuthors();
+  const { postsData, loading, error } = useGetPostsWithAuthors();   
   const { paginatedData, rowsPerPage, setRowsPerPage } =
     useHomeTable(postsData);
   return (
@@ -23,7 +23,10 @@ const HomeTable = () => {
         ))}
       </tbody>
       <tfoot className="table_foot">
-        <Pagination rowsPerPage={rowsPerPage} setRowsPerPage={setRowsPerPage} />
+        <RowsPerPage
+          rowsPerPage={rowsPerPage}
+          setRowsPerPage={setRowsPerPage}
+        />
       </tfoot>
     </table>
   );

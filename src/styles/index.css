@@ -35,7 +35,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 40px;
+  box-sizing: border-box;
 }
 
 .wrap {
@@ -107,6 +107,6 @@ body {
   justify-content: flex-end;
   gap: 16px;
   padding: 8px 0;
-  border-top: 2px solid var(--color-white);
+  border-top: 3px solid var(--color-white);
 }
 /* END Pagination.tsx */
