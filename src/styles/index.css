@@ -93,7 +93,7 @@ body {
 }
 /* END HomeTable.tsx */
 
-/* START Pagination.tsx */
+/* START RowsPerPage.tsx */
 .table_container .table_foot {
   position: sticky;
   bottom: 0;
@@ -109,4 +109,4 @@ body {
   padding: 8px 0;
   border-top: 3px solid var(--color-white);
 }
-/* END Pagination.tsx */
+/* END RowsPerPage.tsx */
