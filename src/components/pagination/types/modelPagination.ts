@@ -1,5 +1,14 @@
 export type ModelPagination = {
   currentPage: number;
-  totalPages: number;
-  handlePageChange: (page: number) => void;
+  totalCount: number;
+  siblingCount?: number;
+  pageSize: number;
+  onPageChange: (page: number) => void;
+};
+
+export type ModelUsePaginationProps = {
+  totalCount: number;
+  pageSize: number;
+  siblingCount?: number;
+  currentPage: number;
 };
