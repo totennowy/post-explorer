@@ -3,7 +3,9 @@
 /* START VARIABLES */
 :root {
   --color-white: #fcfdfc;
+  --color-black-light: #000000c4;
   --color-black: #050505e0;
+  --color-gray: #ccc;
   --color-purple-light: #f1f3fa;
 
   --font-size-small: 0.875rem;
@@ -86,11 +88,6 @@ body {
 .table_container tbody tr:last-child {
   border-bottom: none;
 }
-
-.table_container tr td {
-  max-height: 44px;
-  overflow-y: scroll;
-}
 /* END HomeTable.tsx */
 
 /* START RowsPerPage.tsx */
@@ -101,12 +98,89 @@ body {
 }
 
 .pagination_container {
-  width: 100%;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
-  padding: 8px 0;
+}
+
+.rows_selector_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.rows_label {
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.rows_select {
+  width: 80px;
+  height: 40px;
+  border: 1px solid var(--color-black-light);
+  border-radius: 5px;
+  background-color: var(--color-purple-light);
+  color: var(--color-black-light);
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* END RowsPerPage.tsx */
+
+/* START Pagination.tsx */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.pagination-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  border: 1px solid var(--color-black-light);
+  background-color: var(--color-purple-light);
+  border-radius: 5px;
+  color: var(--color-black-light);
+  cursor: pointer;
+  user-select: none;
+}
+
+.pagination-item:hover {
+  background-color: var(--color-black-light);
+  color: var(--color-purple-light);
+}
+
+.pagination-item.selected {
+  font-weight: 700;
+}
+
+.pagination-item.disabled {
+  background-color: var(--color-black-light);
+  color: var(--color-purple-light);
+  cursor: not-allowed;
+}
+
+.pagination-item.dots {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+/* END Pagination.tsx */
+
+.foot_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
   border-top: 3px solid var(--color-white);
 }
-/* END RowsPerPage.tsx */
