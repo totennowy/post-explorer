@@ -12,7 +12,8 @@ export const usePagination = ({
   pageSize,
   siblingCount = 1,
   currentPage,
-}: ModelUsePaginationProps): (number | string)[] => {
+  onPageChange,
+}: ModelUsePaginationProps & { onPageChange: (page: number) => void }) => {
   const paginationRange = useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / pageSize);
     const totalPageNumbers = siblingCount + 5;
@@ -54,5 +55,21 @@ export const usePagination = ({
     return [];
   }, [totalCount, pageSize, siblingCount, currentPage]);
 
-  return paginationRange;
+  const onNext = () => {
+    if (currentPage < Math.ceil(totalCount / pageSize)) {
+      onPageChange(currentPage + 1);
+    }
+  };
+
+  const onPrevious = () => {
+    if (currentPage > 1) {
+      onPageChange(currentPage - 1);
+    }
+  };
+
+  return {
+    paginationRange,
+    onNext,
+    onPrevious,
+  };
 };
