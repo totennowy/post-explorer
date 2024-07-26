@@ -6,6 +6,8 @@ import RowsPerPage from '@components/rows-per-page/RowsPerPage';
 import Pagination from '@components/pagination/Pagination';
 import useFilters from '../hooks/useFilters';
 import TableFilter from '@components/table-filter/TableFilter';
+import SkeletonLoader from '@components/skeleton-loader/SkeletonLoader';
+import TableError from '@components/table-error/TableError';
 
 const HomeTable = () => {
   const { postsData, loading, error } = useGetPostsWithAuthors();
@@ -38,25 +40,35 @@ const HomeTable = () => {
             <td className="head_column">Body</td>
           </tr>
         </thead>
-        <tbody>
-          {paginatedData.map((post) => (
-            <HomeTableRow key={post.id} {...post} />
-          ))}
-        </tbody>
+        {loading ? (
+          <SkeletonLoader />
+        ) : error ? (
+          <TableError
+            message={'Something went wrong with fetching data. Sorry!'}
+          />
+        ) : (
+          <tbody>
+            {paginatedData.map((post) => (
+              <HomeTableRow key={post.id} {...post} />
+            ))}
+          </tbody>
+        )}
         <tfoot className="table_foot">
-          <div className="foot_container">
-            <Pagination
-              currentPage={currentPage}
-              totalCount={filteredData.length}
-              siblingCount={1}
-              pageSize={rowsPerPage}
-              onPageChange={handlePageChange}
-            />
-            <RowsPerPage
-              rowsPerPage={rowsPerPage}
-              handleRowsPerPage={handleRowsPerPage}
-            />
-          </div>
+          <tr className="foot_container">
+            <td className="foot_box">
+              <Pagination
+                currentPage={currentPage}
+                totalCount={filteredData.length}
+                siblingCount={1}
+                pageSize={rowsPerPage}
+                onPageChange={handlePageChange}
+              />
+              <RowsPerPage
+                rowsPerPage={rowsPerPage}
+                handleRowsPerPage={handleRowsPerPage}
+              />
+            </td>
+          </tr>
         </tfoot>
       </table>
     </div>
