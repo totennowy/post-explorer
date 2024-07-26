@@ -6,6 +6,7 @@
   --color-black-light: #000000c4;
   --color-black: #050505e0;
   --color-gray: #ccc;
+  --color-light-gray: #e0e0e0;
   --color-purple-light: #f1f3fa;
 
   --font-size-small: 0.875rem;
@@ -89,10 +90,25 @@ body {
 .foot_container {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   gap: 40px;
   border-top: 3px solid var(--color-white);
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 50px;
+}
+
+.foot_box {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 .table_container tr {
@@ -113,6 +129,8 @@ body {
   position: sticky;
   bottom: 0;
   background-color: var(--color-purple-light);
+  margin: 0;
+  padding: 0;
 }
 
 .pagination_container {
@@ -262,3 +280,63 @@ body {
   background: var(--color-dark-gray);
 }
 /* END TableFilter.tsx */
+
+/* START SkeletonLoader.tsx */
+.skeleton_row {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 4fr 8fr;
+  gap: 16px;
+  border-bottom: 2px solid var(--color-white);
+  padding: 4px 0;
+}
+
+.skeleton_cell {
+  background: linear-gradient(
+    90deg,
+    var(--color-gray) 25%,
+    var(--color-light-gray) 50%,
+    var(--color-gray) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  height: 12px;
+  margin: 8px 0;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+/* END SkeletonLoader.tsx */
+
+/* START TableError.tsx */
+.error_wrap {
+  width: 100%;
+  height: 400px;
+}
+
+.error_container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error_message {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-extra-large);
+  font-weight: var(---font-weight-bold);
+}
+/* END TableError.tsx */
