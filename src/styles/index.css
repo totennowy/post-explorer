@@ -227,8 +227,34 @@ body {
 }
 
 .filter_icon {
-  width: 20px;
+  display: inline-block;
+  width: 10px;
   height: 20px;
+  position: relative;
+}
+
+.filter_icon::before,
+.filter_icon::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.filter_icon::before {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent black transparent;
+  top: 0;
+}
+
+.filter_icon::after {
+  border-width: 8px 8px 0 8px;
+  border-color: black transparent transparent transparent;
+  bottom: 0;
 }
 
 .table_filter_content {
