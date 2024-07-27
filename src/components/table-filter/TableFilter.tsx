@@ -1,7 +1,6 @@
 import React from 'react';
 import useTableFilter from './hooks/useTableFilter';
 import { ModelTableFilter } from './types/modelTableFilter';
-import arrowFilterIcon from '@assets/top-bottom-arrow.svg';
 
 const TableFilter: React.FC<ModelTableFilter> = ({
   options,
@@ -19,7 +18,7 @@ const TableFilter: React.FC<ModelTableFilter> = ({
   return (
     <div className="table_filter_container" ref={filterRef}>
       <button className="filter_button" onClick={toggleFilter}>
-        <img src={arrowFilterIcon} alt="filter icon" className="filter_icon" />
+        <span className="filter_icon" aria-label="filter icon"></span>
       </button>
       {isOpen && (
         <div className="table_filter_content">
