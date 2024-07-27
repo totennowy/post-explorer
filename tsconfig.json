@@ -22,7 +22,8 @@
       "@contexts/*": ["contexts/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"]
-    }
+    },
+    "types": ["jest", "node", "@testing-library/jest-dom"]
   },
   "include": ["src"],
   "exclude": ["node_modules"]
