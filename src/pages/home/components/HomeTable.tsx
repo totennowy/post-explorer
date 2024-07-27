@@ -23,55 +23,53 @@ const HomeTable = () => {
   } = useHomeTable(filteredData);
 
   return (
-    <div>
-      <table className="table_container">
-        <thead className="table_head">
-          <tr className="row_container">
-            <td className="head_column">
-              <p className="head_title">Author</p>
-              <TableFilter
-                options={authorOptions}
-                onChange={handleAuthorFilter}
-                placeholder="Filter by author"
-              />
-            </td>
-            <td className="head_column">Post ID</td>
-            <td className="head_column">Title</td>
-            <td className="head_column">Body</td>
-          </tr>
-        </thead>
-        {loading ? (
-          <SkeletonLoader />
-        ) : error ? (
-          <TableError
-            message={'Something went wrong with fetching data. Sorry!'}
-          />
-        ) : (
-          <tbody>
-            {paginatedData.map((post) => (
-              <HomeTableRow key={post.id} {...post} />
-            ))}
-          </tbody>
-        )}
-        <tfoot className="table_foot">
-          <tr className="foot_container">
-            <td className="foot_box">
-              <Pagination
-                currentPage={currentPage}
-                totalCount={filteredData.length}
-                siblingCount={1}
-                pageSize={rowsPerPage}
-                onPageChange={handlePageChange}
-              />
-              <RowsPerPage
-                rowsPerPage={rowsPerPage}
-                handleRowsPerPage={handleRowsPerPage}
-              />
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
+    <table className="table_container">
+      <thead className="table_head">
+        <tr className="row_container">
+          <td className="head_column">
+            <p className="head_title">Author</p>
+            <TableFilter
+              options={authorOptions}
+              onChange={handleAuthorFilter}
+              placeholder="Filter by author"
+            />
+          </td>
+          <td className="head_column">Post ID</td>
+          <td className="head_column">Title</td>
+          <td className="head_column">Body</td>
+        </tr>
+      </thead>
+      {loading ? (
+        <SkeletonLoader />
+      ) : error ? (
+        <TableError
+          message={'Something went wrong with fetching data. Sorry!'}
+        />
+      ) : (
+        <tbody>
+          {paginatedData.map((post) => (
+            <HomeTableRow key={post.id} {...post} />
+          ))}
+        </tbody>
+      )}
+      <tfoot className="table_foot">
+        <tr className="foot_container">
+          <td className="foot_box">
+            <Pagination
+              currentPage={currentPage}
+              totalCount={filteredData.length}
+              siblingCount={1}
+              pageSize={rowsPerPage}
+              onPageChange={handlePageChange}
+            />
+            <RowsPerPage
+              rowsPerPage={rowsPerPage}
+              handleRowsPerPage={handleRowsPerPage}
+            />
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   );
 };
 
